@@ -1,0 +1,20 @@
+{
+    "settings": [
+        {
+            "provider": "inwx",
+            "domain": "psusen.de",
+            "host": "@",
+            "username": "psusen.de",
+            "password": "qr5U4vci9%@4SQ*yCkCY",
+            "ip_version": "ipv4"
+        },
+        {
+            "provider": "inwx",
+            "domain": "psusen.de",
+            "host": "@",
+            "username": "psusen.de",
+            "password": "qr5U4vci9%@4SQ*yCkCY",
+            "ip_version": "ipv6"
+        }
+    ]
+}

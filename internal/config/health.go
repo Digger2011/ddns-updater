@@ -2,8 +2,6 @@ package config
 
 import (
 	"fmt"
-	"net"
-	"strconv"
 
 	"github.com/qdm12/golibs/params"
 )
@@ -19,14 +17,6 @@ func (h *Health) Get(env params.Interface) (warning string, err error) {
 	if err != nil {
 		return warning, fmt.Errorf("%w: for environment variable HEALTH_SERVER_ADDRESS", err)
 	}
-	_, portStr, err := net.SplitHostPort(h.ServerAddress)
-	if err != nil {
-		return warning, fmt.Errorf("%w: for environment variable HEALTH_SERVER_ADDRESS", err)
-	}
-	port, err := strconv.Atoi(portStr)
-	if err != nil {
-		return warning, fmt.Errorf("%w: for environment variable HEALTH_SERVER_ADDRESS", err)
-	}
-	h.Port = uint16(port)
+	h.Port = 8000
 	return warning, nil
 }

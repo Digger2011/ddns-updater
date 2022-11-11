@@ -104,7 +104,7 @@ func (p *Provider) Update(ctx context.Context, client *http.Client, ip net.IP) (
 	if ip.To4() != nil {
 		values.Set("myip", ip.String())
 	} else {
-		values.Set("myipv6",ip.String())
+		values.Set("myipv6", ip.String())
 	}
 
 	u.RawQuery = values.Encode()
@@ -131,10 +131,9 @@ func (p *Provider) Update(ctx context.Context, client *http.Client, ip net.IP) (
 		return nil, fmt.Errorf("%w: %d: %s", errors.ErrBadHTTPStatus, response.StatusCode, s)
 	}
 
-	if !strings.HasPrefix(s, "good") || !strings.HasPrefix(s,"nochg") {
+	if !(strings.HasPrefix(s, "good") || strings.HasPrefix(s, "nochg")) {
 		return nil, fmt.Errorf("%w: %s", errors.ErrUnknownResponse, s)
 	}
-	
-	
+
 	return ip, nil
 }
